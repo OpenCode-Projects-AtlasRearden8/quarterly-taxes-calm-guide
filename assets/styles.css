@@ -1,0 +1,234 @@
+/* Quarterly Taxes Calm Guide - calm, warm, print-friendly.
+   Part of the Asdale Dynamics plain-English guide series. */
+
+:root {
+  --paper: #fbf7f0;
+  --card: #ffffff;
+  --ink: #33302b;
+  --muted: #6f6a61;
+  --accent: #3e7c59;
+  --accent-soft: #e4efe7;
+  --warn: #b3541e;
+  --warn-soft: #f7e9df;
+  --line: #e5dccd;
+  --code-bg: #f2ede2;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.8rem 1.4rem;
+  background: var(--ink);
+  color: #f5f1e8;
+}
+
+.topbar .brand {
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.topbar .tagline {
+  font-size: 0.8rem;
+  color: #d8d2c4;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 46rem);
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.5rem 1.2rem 3rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.nav-group { margin-bottom: 1.2rem; }
+
+.nav-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar li { margin: 0.15rem 0; }
+.sidebar a {
+  display: block;
+  padding: 0.28rem 0.55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.sidebar a:hover { background: var(--accent-soft); }
+.sidebar a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.content { padding-top: 0.6rem; }
+
+.content h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0.4rem 0 1rem;
+}
+
+.content h2 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+}
+
+.content h3 { font-size: 1.08rem; margin-top: 1.5rem; }
+
+.content a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+.content blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95em;
+}
+.content blockquote p { margin: 0; }
+
+.content code {
+  background: var(--code-bg);
+  padding: 0.08em 0.35em;
+  border-radius: 4px;
+  font-size: 0.88em;
+  font-family: "Cascadia Code", Consolas, "DejaVu Sans Mono", monospace;
+}
+
+.content pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+}
+.content pre code { background: none; padding: 0; }
+
+.tablewrap { overflow-x: auto; margin: 1.2rem 0; }
+.content table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--card);
+  font-size: 0.92em;
+}
+.content th, .content td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.content th { background: var(--accent-soft); font-family: "Segoe UI", system-ui, sans-serif; font-size: 0.85rem; }
+.content tbody tr:nth-child(even) { background: #fdfcf9; }
+
+.content ul.job, .content ul li.job, .content li.job { list-style: none; }
+.content li.job { padding-left: 0; }
+.content li.job .box {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  border: 2px solid var(--muted);
+  border-radius: 3px;
+  margin-right: 0.45em;
+  vertical-align: -0.08em;
+  background: var(--card);
+}
+.content li.job .box.done {
+  border-color: var(--accent);
+  background: var(--accent);
+  position: relative;
+}
+.content li.job .box.done::after {
+  content: "\2713";
+  color: #fff;
+  font-size: 0.7em;
+  position: absolute;
+  top: -0.25em;
+  left: 0.12em;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2.2rem 0 1.2rem;
+  flex-wrap: wrap;
+}
+.pager-link {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  max-width: 48%;
+}
+.pager-link:hover { background: var(--accent-soft); }
+.pager-next { margin-left: auto; }
+
+.doc-footer {
+  margin-top: 2rem;
+  padding: 0.9rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.doc-footer p { margin: 0.4rem 0; }
+.doc-footer .colophon { border-top: 1px solid var(--line); padding-top: 0.5rem; }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { position: static; }
+  .topbar { position: static; }
+}
+
+@media print {
+  body { background: #fff; font-size: 11.5pt; }
+  .topbar, .sidebar, .pager { display: none; }
+  .layout { display: block; padding: 0; }
+  .content { max-width: none; }
+  .content a { color: inherit; text-decoration: none; }
+  .content table { font-size: 10.5pt; }
+  .doc-footer { border: solid 1px #999; }
+  .content li.job .box { background: #fff; }
+  .content li.job .box.done::after { color: #333; }
+}
